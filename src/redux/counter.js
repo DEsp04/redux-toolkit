@@ -1,28 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+
+//A createSlice is something that's made up of your state, reducers, and actions in those reducers. In regular redux you would have to define each one of these seperately. However, with redux toolkit there's Slice and through this the createSlice function you can define your state, reducers and actions all in one place and alot more clean and simpler way.
+
 export const counterSlice = createSlice({
+
+  //name of slice is counter
+  //object called reducers which will be everything that touches your state, actions and reducers that modify it
+  //increment:, decrement:, and incrementByAmount: are all actions
   name: 'counter',
   initialState: {
-    value: 0
+    count: 0
   },
   reducers: {
     increment: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
+      state.count += 1
     },
     decrement: state => {
-      state.value -= 1
+      state.count -= 1
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload
+      state.count += action.payload
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export default counterSlice.reducer
+//Reducers 
+export default counterSlice.reducer;
